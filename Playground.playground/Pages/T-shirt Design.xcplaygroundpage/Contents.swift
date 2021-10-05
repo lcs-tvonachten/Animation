@@ -42,53 +42,41 @@ PlaygroundPage.current.liveView = canvas
 
  */
 //move the origin
-canvas.translate(to: Point(x: canvas.width / 2 , y: canvas.height / 2 ))
+canvas.translate(to: Point(x: canvas.width / 2 , y: canvas.height / 6 ))
 
 //draw the scale
 canvas.drawAxes(withScale: true, by: 20, color: .black)
 
-//change the fill color to white
-canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 100, alpha: 50)
+// Black
+p.penColor = .black
 
-//turn on borders
-canvas.drawShapesWithBorders = true
+// Thicker lines
+p.lineWidth = 3
 
-//draw rigth ear
-canvas.drawEllipse(at: Point(x: 30, y: 45), width: 25, height: 25)
+// Orange section
+//left triangle
+p.drawTo(dx: 0, dy: 40)
+p.drawTo(dx: -20, dy: -20)
 
-//draw left ear
-canvas.drawEllipse(at: Point(x: -30, y: 45), width: 25, height: 25)
+p.goToOrigin()
 
-//draw a circle
-canvas.drawEllipse(at: Point(x: 0, y: 0), width: 100, height: 100)
+// right triangle
+p.drawTo(dx: 0, dy: 40)
+p.drawTo(dx: 20, dy: -20)
 
-// draw rigth eye
-canvas.drawEllipse(at: Point(x: 13, y: 20), width: 20, height: 25)
-
-canvas.fillColor = .black
-canvas.drawEllipse(at: Point(x: 13, y: 15), width: 16, height: 16)
-
-//draw left eye
-canvas.fillColor = .white
-canvas.drawEllipse(at: Point(x: -13, y: 20), width: 20, height: 25)
-
-canvas.fillColor = .black
-canvas.drawEllipse(at: Point(x: -13, y: 15), width: 16, height: 16)
+p.penDown()
+p.goToOrigin()
 
 
+// Green section
+//left triangle
+p.goto(dx: 20, dy: 20)
+p.drawTo(dx: 20, dy: 0)
+p.drawTo(dx: 0, dy: 60)
+p.drawTo(dx: -20, dy: -60)
 
-/*:
- ## Show the Live View
- Don't see any results?
- 
- Remember to show the Live View (1 then 2):
- 
- ![timeline](timeline.png "Timeline")
+p.goToOrigin()
 
- ## Use source control
- To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
- 
- Please commit and push your work often.
- 
- ![source_control](source-control.png "Source Control")
- */
+//right triangle
+p.goto(dx: 40, dy: 20)
+p.drawTo(dx: 0, dy: 100)
