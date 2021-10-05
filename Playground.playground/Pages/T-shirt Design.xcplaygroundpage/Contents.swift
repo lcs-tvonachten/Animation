@@ -23,8 +23,14 @@ let canvas = Canvas(width: preferredWidth, height: preferredHeight)
 // Create a turtle that will draw upon the canvas
 let turtle = Tortoise(drawingUpon: canvas)
 
+// Create a pen that will draw upon the canvas
+let p = Pen(drawingUpon: canvas)
+
+
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
+
+
 /*:
  ## Add your code
  
@@ -35,9 +41,41 @@ PlaygroundPage.current.liveView = canvas
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+//move the origin
+canvas.translate(to: Point(x: canvas.width / 2 , y: canvas.height / 2 ))
 
-// Replace this comment with your first comment – what is the goal of the code you're about to write?
-canvas.drawRectangle(at: Point(x: 50, y: 75), width: 100, height: 200)
+//draw the scale
+canvas.drawAxes(withScale: true, by: 20, color: .black)
+
+//change the fill color to white
+canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 100, alpha: 50)
+
+//turn on borders
+canvas.drawShapesWithBorders = true
+
+//draw rigth ear
+canvas.drawEllipse(at: Point(x: 30, y: 45), width: 25, height: 25)
+
+//draw left ear
+canvas.drawEllipse(at: Point(x: -30, y: 45), width: 25, height: 25)
+
+//draw a circle
+canvas.drawEllipse(at: Point(x: 0, y: 0), width: 100, height: 100)
+
+// draw rigth eye
+canvas.drawEllipse(at: Point(x: 13, y: 20), width: 20, height: 25)
+
+canvas.fillColor = .black
+canvas.drawEllipse(at: Point(x: 13, y: 15), width: 16, height: 16)
+
+//draw left eye
+canvas.fillColor = .white
+canvas.drawEllipse(at: Point(x: -13, y: 20), width: 20, height: 25)
+
+canvas.fillColor = .black
+canvas.drawEllipse(at: Point(x: -13, y: 15), width: 16, height: 16)
+
+
 
 /*:
  ## Show the Live View
